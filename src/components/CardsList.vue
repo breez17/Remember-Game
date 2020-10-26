@@ -4,8 +4,11 @@
         <div class="cards-list__start" v-if="cards.length > 0">
             <button class="cards-list__start-btn btn" @click="restartGame">Start new game</button>
         </div>
+        <div class="cards-list__moves-wrapper" v-if="cards.length > 0">
+            <p class="cards-list__moves-item cards-list__options">{{ movies }} steps</p>
+        </div>
         <div class="cards-list__time-wrapper" v-if="cards.length > 0">
-            <p class="cards-list__time-item">{{ minutes }}m : {{ seconds }}s</p>
+            <p class="cards-list__time-item cards-list__options">{{ minutes }}m : {{ seconds }}s</p>
         </div>
         <div class="cards-list__cards" v-if="cards.length > 0">
             <div v-for="card in cards"
@@ -35,7 +38,8 @@ export default {
             seconds: 0,
             minutes: 0,
             isStopped: false,
-            interval: null
+            interval: null,
+            movies: 0
         }
     },
     watch: {
@@ -70,10 +74,12 @@ export default {
             if (cardsIds.length === 2) {
                 for (let i = 0; i < 2; i++) {
                     if (this.openedCards[cardsIds[i]] && this.openedCards[cardsIds[0]].value !== this.openedCards[cardsIds[1]].value) {
+                        this.movies++;
                         this.openedCards = {};
                     }
                     if (this.openedCards[cardsIds[i]] && this.openedCards[cardsIds[0]].value === this.openedCards[cardsIds[1]].value) {
                         this.trueEnums.push(this.openedCards[cardsIds[0]].value);
+                        this.movies++;
                         this.openedCards = {};
                     }
                 }
@@ -149,6 +155,36 @@ export default {
         width: max-content;
     }
 
+    &__moves {
+        &-wrapper {
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        &-item {
+
+            left: 100px;
+        }
+    }
+
+    &__options {
+        margin: 0 auto;
+        background: $blue;
+        color: white;
+        border-radius: 50%;
+        text-transform: uppercase;
+        font-weight: 100;
+        letter-spacing: 2px;
+        width: 130px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 100px;
+    }
+
     &__time {
         &-wrapper {
             width: 100%;
@@ -156,20 +192,6 @@ export default {
             position: relative;
         }
         &-item {
-            margin: 0 auto;
-            background: $blue;
-            color: white;
-            border-radius: 50%;
-            text-transform: uppercase;
-            font-weight: 100;
-            letter-spacing: 2px;
-            width: 130px;
-            height: 130px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 100px;
             right: 100px;
         }
     }
