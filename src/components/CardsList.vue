@@ -8,12 +8,12 @@
             <p class="cards-list__time-item">{{ minutes }}m : {{ seconds }}s</p>
         </div>
         <div class="cards-list__cards" v-if="cards.length > 0">
-            <div
-                v-for="card in cards"
-                :key="card.id"
-                class="card-item hidden"
-                :class="{ 'card-item--active': Object.keys(openedCards).includes(`${card.id}`), 'card-item--active card-item--true' : trueEnums.includes(card.value)}"
-                @click="openOneItem(card)">
+            <div v-for="card in cards"
+                 :key="card.id"
+                 class="card-item hidden"
+                 :class="{ 'card-item--active': Object.keys(openedCards).includes(`${card.id}`),
+                 'card-item--active card-item--true' : trueEnums.includes(card.value)}"
+                 @click="openOneItem(card)">
                 {{ card.name }}
             </div>
         </div>
@@ -30,8 +30,8 @@ export default {
     data() {
         return {
             cards: [],
-            openedCards: {},
             trueEnums: [],
+            openedCards: {},
             seconds: 0,
             minutes: 0,
             isStopped: false,
@@ -66,6 +66,7 @@ export default {
         openOneItem(card) {
             let cardsIds = [];
             cardsIds = Object.keys(this.openedCards);
+            // :TODO fix third click
             if (cardsIds.length === 2) {
                 for (let i = 0; i < 2; i++) {
                     if (this.openedCards[cardsIds[i]] && this.openedCards[cardsIds[0]].value !== this.openedCards[cardsIds[1]].value) {
@@ -76,9 +77,9 @@ export default {
                         this.openedCards = {};
                     }
                 }
+
                 return;
             }
-
             this.$set(this.openedCards, card.id, card);
         },
 

@@ -13,44 +13,44 @@
 </script>
 
 <style lang="scss">
-    @import "../assets/styles/scss-variables.scss";
+@import "../assets/styles/scss-variables.scss";
 
-    .not-found {
-        background: $blue;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+.not-found {
+    background: $blue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-        &__title {
-            font-size: 30px;
-            letter-spacing: 2px;
-            font-weight: 100;
-            color: $white;
-        }
+    &__title {
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: 100;
+        color: $white;
+    }
 
-        &__description {
-            margin-top: 20px;
-            font-size: 15px;
-            letter-spacing: 2px;
-            font-weight: 100;
-            color: $white;
-        }
+    &__description {
+        margin-top: 20px;
+        font-size: 15px;
+        letter-spacing: 2px;
+        font-weight: 100;
+        color: $white;
+    }
 
-        &__link {
-            margin-top: 20px;
-            color: $white;
-            text-decoration: none;
-            border-bottom: 1px solid $white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding-bottom: 10px;
-            transition: all .3s;
+    &__link {
+        margin-top: 20px;
+        color: $white;
+        text-decoration: none;
+        border-bottom: 1px solid $white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-bottom: 10px;
+        transition: all .3s;
 
-            &:hover {
-                letter-spacing: 3px;
-            }
+        &:hover {
+            letter-spacing: 3px;
         }
     }
+}
 </style>

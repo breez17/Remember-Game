@@ -14,7 +14,7 @@ export default {
   name: 'Home',
     components: {
       CardsList,
-        Header
+      Header
     },
     methods: {
         resetParams() {
