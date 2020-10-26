@@ -1,0 +1,33 @@
+@import "./scss-variables";
+
+.btn {
+    border-radius: 4px;
+    background: none;
+    width: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 5px 10px;
+    transition: all .3s;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-white {
+    border: 1px solid $white;
+    color: $white;
+    &:hover {
+        background: $white;
+        color: $blue;
+    }
+}
+
+.btn-black {
+    border: 1px solid $black;
+    background: inherit;
+    width: 100px;
+    color: $black;
+    &:hover {
+        background: $black;
+        color: $white;
+    }
+}
