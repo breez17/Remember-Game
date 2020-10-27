@@ -95,6 +95,7 @@ export default {
             this.isStopped = false;
             this.minutes = 0;
             this.seconds = 0;
+            this.movies = 0;
             clearInterval(this.interval);
         },
 
